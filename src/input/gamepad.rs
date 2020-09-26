@@ -32,19 +32,19 @@ impl fmt::Debug for GilrsGamepadContext {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "<GilrsGamepadContext: {:p}>", self)
     }
-
-    /// Returns a `GilrsGamepadContext` with the entered Gilrs
-    pub fn from(custom_gilrs: Gilrs) -> Self {
-        GilrsGamepadContext {
-            gilrs: custom_gilrs,
-        }
-    }
 }
 
 impl GilrsGamepadContext {
     pub(crate) fn new() -> GameResult<Self> {
         let gilrs = Gilrs::new()?;
         Ok(GilrsGamepadContext { gilrs })
+    }
+
+    /// Returns a `GilrsGamepadContext` with the entered Gilrs
+    pub fn from(custom_gilrs: Gilrs) -> Self {
+        GilrsGamepadContext {
+            gilrs: custom_gilrs,
+        }
     }
 }
 
